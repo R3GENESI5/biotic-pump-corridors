@@ -1,0 +1,50 @@
+digraph BiotiPumpBreakdown {
+    rankdir=TB;
+    bgcolor="white";
+    fontname="Segoe UI";
+    nodesep=0.4;
+    ranksep=0.55;
+
+    node [fontname="Segoe UI", fontsize=11, shape=box,
+          style="filled,rounded", penwidth=0,
+          width=4.2, margin="0.2,0.15"];
+    edge [fontname="Segoe UI", fontsize=10, penwidth=1.4,
+          color="#444444", fontcolor="#444444"];
+
+    s1 [label="1. Evapotranspiration Drop\nMODIS (ET, NDVI)\nReduced vegetation moisture and activity",
+        fillcolor="#2a9d8f", fontcolor="white"];
+
+    s2 [label="2. Cloud Cover Decline\nCERES, MODIS\nLess vapour entering boundary layer",
+        fillcolor="#3a7ca5", fontcolor="white"];
+
+    s3 [label=<3. OLR Increase (8&#8211;13 &#181;m)<BR/>CERES EBAF-TOA<BR/>More radiation escapes due to less cloud cover>,
+        fillcolor="#1d3557", fontcolor="white"];
+
+    s4 [label="4. Suppressed Latent Heat Flux\nMODIS, AIRS\nLess condensation means less energy release",
+        fillcolor="#c85a3a", fontcolor="white"];
+
+    s5 [label="5. Flattened Pressure Gradient\nERA5 (future work)\nWeaker uplift and inflow circulation",
+        fillcolor="#bbbbbb", fontcolor="#333333",
+        style="filled,rounded,dashed", penwidth=1, color="#999999"];
+
+    s6 [label="6. Moisture Rerouting\nERA5, HYSPLIT (future work)\nMoisture diverted to other regions",
+        fillcolor="#bbbbbb", fontcolor="#333333",
+        style="filled,rounded,dashed", penwidth=1, color="#999999"];
+
+    s1 -> s2 [label=<  &#8595; ET &#8594; &#8595; clouds  >];
+    s2 -> s3 [label=<  &#8595; clouds &#8594; &#8593; OLR  >];
+    s3 -> s4 [label=<  &#8593; OLR &#8594; &#8595; condensation  >];
+    s4 -> s5 [label=<  &#8595; latent heat &#8594; &#8595; pressure gradient  >, style=dashed, color="#999999", fontcolor="#999999"];
+    s5 -> s6 [label=<  &#8595; inflow &#8594; diverted moisture  >, style=dashed, color="#999999", fontcolor="#999999"];
+
+    s6 -> s1 [label=<  Positive feedback loop  >,
+              color="#d63031", fontcolor="#d63031", penwidth=2.5,
+              style=bold, constraint=false, headport=w, tailport=w];
+
+    labelloc="t";
+    label=<
+        <TABLE BORDER="0" CELLBORDER="0" CELLSPACING="2">
+        <TR><TD><FONT FACE="Segoe UI" POINT-SIZE="16"><B>Biotic Pump Breakdown: Diagnostic Chain</B></FONT></TD></TR>
+        </TABLE>
+    >;
+}

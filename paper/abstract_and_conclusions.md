@@ -1,0 +1,23 @@
+# Abstract
+
+The biotic pump hypothesis proposes that forest evapotranspiration drives condensation-generated low pressure that sustains inland moisture transport. We test this mechanism using 25 years of satellite data along two tropical moisture corridors: Belém–Manaus (Amazon) and Gulf of Guinea–Kisangani (Congo). Comparing 2019 with the 2023 drought, we find that outgoing longwave radiation increased, cloud fraction decreased, and column water vapour accumulated at the coast rather than penetrating inland — all signatures of weakened condensation-driven transport. These signals amplify with distance from the coast and concentrate in the September–November dry-to-wet transition, when forest transpiration should initiate the wet season ahead of the Intertropical Convergence Zone. Over 2001–2025, the Amazon coast-to-interior cloud fraction gradient declined at −0.17%/yr (p = 0.001 after removing the ENSO signal), indicating progressive structural degradation independent of interannual climate variability. NDVI analysis confirms that 88% of intact forest cells experienced greenness decline, establishing that the evapotranspiration reduction reflects drought stress in standing forest, not land-cover change. The Congo corridor shows the same trends at weaker magnitudes, consistent with an earlier stage of degradation. These results provide spatially resolved satellite evidence for the biotic pump mechanism and document its progressive failure in the two largest tropical forests.
+
+---
+
+# 5. Conclusions
+
+1. Four independent satellite instruments (CERES, MODIS ET, MODIS NDVI, AIRS) show a spatially coherent weakening of moisture transport along the Belém–Manaus and Gulf of Guinea–Kisangani corridors between 2019 and 2023. The signals — increased OLR, decreased cloud fraction, decreased cloud radiative effect, and a steepened coast-to-interior water vapour gradient — are consistent with the predictions of the biotic pump hypothesis.
+
+2. The signals amplify with distance from the coast. Interior OLR increased by +4.3 W/m² versus +2.7 W/m² at the coast (Amazon), and the AIRS water vapour gradient steepened by −1.2 kg/m². This spatial pattern is consistent with a failure of inland moisture relay, not a spatially uniform climate forcing.
+
+3. The corridor breakdown is concentrated in September–November, the season when forest transpiration should initiate the wet season ahead of the ITCZ. Interior OLR during SON increased by +24.5 W/m² — the largest signal in any season — while the wet season (DJF) showed partial recovery driven by geophysical forcing. This seasonal selectivity implicates the forest-driven component of moisture convergence.
+
+4. The Amazon corridor has undergone progressive weakening over 25 years (2001–2025). The cloud fraction gradient trend (−0.17%/yr, p = 0.001) and CRE gradient trend (−0.12 W/m²/yr, p = 0.033) are statistically significant after removing the ENSO signal, which explains less than 1% of the variance. The degradation is structural, not cyclical.
+
+5. NDVI analysis confirms that 88% of intact forest cells (NDVI > 0.6 in 2019) experienced greenness decline by 2023 (mean change = −0.009, t = −15.4, p < 10⁻⁶), establishing that the ET reduction reflects drought stress in standing forest rather than deforestation.
+
+6. The Congo corridor shows trends in the same direction as the Amazon but at weaker magnitudes and without individually significant long-term trends. We interpret this as an earlier stage of the same degradation process, consistent with the Congo's lower deforestation rate and fewer severe droughts. The CRE gradient is declining (−0.07 W/m²/yr), suggesting that the atmospheric response is beginning to weaken even though the forest maintains its transpiration effort.
+
+7. During September 2023, a spatial dipole is observed: positive OLR anomalies over the Amazon (+12.5 W/m²) and Congo (+5.0 W/m²), and negative OLR anomalies over the eastern Mediterranean coinciding with Storm Daniel. We note this as a hypothesis for future investigation using moisture trajectory analysis.
+
+These findings constitute the first spatially resolved, multi-instrument satellite documentation of biotic pump weakening along defined moisture corridors. The progressive nature of the trend, its independence from ENSO, and the confirmation that intact forest is drought-stressed collectively indicate that condensation-driven circulation in the world's two largest tropical forests is deteriorating. This has implications for regional precipitation forecasts, tipping point assessments, and the urgency of forest conservation as a climate stabilisation strategy.

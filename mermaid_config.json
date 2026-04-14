@@ -1,0 +1,13 @@
+{
+  "theme": "neutral",
+  "themeVariables": {
+    "fontSize": "14px",
+    "fontFamily": "Segoe UI, Arial, sans-serif"
+  },
+  "flowchart": {
+    "nodeSpacing": 30,
+    "rankSpacing": 40,
+    "curve": "basis",
+    "htmlLabels": true
+  }
+}

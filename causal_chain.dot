@@ -1,0 +1,200 @@
+digraph BiotiPumpBreakdown {
+    // Global settings
+    rankdir=TB;
+    bgcolor="white";
+    fontname="Helvetica";
+    node [fontname="Helvetica", fontsize=11, style="filled,rounded", shape=box,
+          width=3.8, penwidth=1.5, margin="0.2,0.15"];
+    edge [fontname="Helvetica", fontsize=9, color="#444444", penwidth=1.5];
+
+    // Invisible nodes for alignment
+    newrank=true;
+
+    // ===== MAIN CHAIN (left column) =====
+
+    step1 [
+        label=<
+            <TABLE BORDER="0" CELLBORDER="0" CELLSPACING="2">
+            <TR><TD><B><FONT POINT-SIZE="12">1. Evapotranspiration Drop</FONT></B></TD></TR>
+            <TR><TD><FONT POINT-SIZE="9" COLOR="#555555">Reduced vegetation moisture and activity</FONT></TD></TR>
+            </TABLE>
+        >,
+        fillcolor="#2a9d8f", fontcolor="white"
+    ];
+
+    step2 [
+        label=<
+            <TABLE BORDER="0" CELLBORDER="0" CELLSPACING="2">
+            <TR><TD><B><FONT POINT-SIZE="12">2. Cloud Cover Decline</FONT></B></TD></TR>
+            <TR><TD><FONT POINT-SIZE="9" COLOR="#555555">Less vapor entering boundary layer</FONT></TD></TR>
+            </TABLE>
+        >,
+        fillcolor="#457b9d", fontcolor="white"
+    ];
+
+    step3 [
+        label=<
+            <TABLE BORDER="0" CELLBORDER="0" CELLSPACING="2">
+            <TR><TD><B><FONT POINT-SIZE="12">3. OLR Increase (8-13 &#181;m)</FONT></B></TD></TR>
+            <TR><TD><FONT POINT-SIZE="9" COLOR="#555555">More radiation escapes to space</FONT></TD></TR>
+            </TABLE>
+        >,
+        fillcolor="#264653", fontcolor="white"
+    ];
+
+    step4 [
+        label=<
+            <TABLE BORDER="0" CELLBORDER="0" CELLSPACING="2">
+            <TR><TD><B><FONT POINT-SIZE="12">4. Suppressed Latent Heat Flux</FONT></B></TD></TR>
+            <TR><TD><FONT POINT-SIZE="9" COLOR="#555555">Less condensation, less energy release</FONT></TD></TR>
+            </TABLE>
+        >,
+        fillcolor="#e76f51", fontcolor="white"
+    ];
+
+    step5 [
+        label=<
+            <TABLE BORDER="0" CELLBORDER="0" CELLSPACING="2">
+            <TR><TD><B><FONT POINT-SIZE="12">5. Pressure Gradient Flattens</FONT></B></TD></TR>
+            <TR><TD><FONT POINT-SIZE="9" COLOR="#888888">Weaker uplift and inflow circulation</FONT></TD></TR>
+            </TABLE>
+        >,
+        fillcolor="#cccccc", fontcolor="#333333", style="filled,rounded,dashed"
+    ];
+
+    step6 [
+        label=<
+            <TABLE BORDER="0" CELLBORDER="0" CELLSPACING="2">
+            <TR><TD><B><FONT POINT-SIZE="12">6. Moisture Rerouting</FONT></B></TD></TR>
+            <TR><TD><FONT POINT-SIZE="9" COLOR="#888888">Moisture diverted to other regions</FONT></TD></TR>
+            </TABLE>
+        >,
+        fillcolor="#cccccc", fontcolor="#333333", style="filled,rounded,dashed"
+    ];
+
+    // ===== INSTRUMENT TAGS (right column) =====
+
+    inst1 [label="MODIS: ET, NDVI", shape=box, fillcolor="#e8f5e9", fontcolor="#2a9d8f",
+           fontsize=10, width=1.8, penwidth=1, style="filled,rounded"];
+    inst2 [label="CERES cloud fraction\nMODIS, EUMETSAT", shape=box, fillcolor="#e3f2fd", fontcolor="#457b9d",
+           fontsize=10, width=1.8, penwidth=1, style="filled,rounded"];
+    inst3 [label="CERES EBAF-TOA", shape=box, fillcolor="#e0e0e0", fontcolor="#264653",
+           fontsize=10, width=1.8, penwidth=1, style="filled,rounded"];
+    inst4 [label="MODIS, AIRS", shape=box, fillcolor="#fbe9e7", fontcolor="#e76f51",
+           fontsize=10, width=1.8, penwidth=1, style="filled,rounded"];
+    inst5 [label="ERA5\n(future work)", shape=box, fillcolor="#f5f5f5", fontcolor="#999999",
+           fontsize=10, width=1.8, penwidth=1, style="filled,rounded,dashed"];
+    inst6 [label="ERA5, HYSPLIT\n(future work)", shape=box, fillcolor="#f5f5f5", fontcolor="#999999",
+           fontsize=10, width=1.8, penwidth=1, style="filled,rounded,dashed"];
+
+    // ===== KEY FINDINGS (far right) =====
+
+    find1 [label=<
+        <TABLE BORDER="0" CELLBORDER="0" CELLSPACING="1">
+        <TR><TD ALIGN="LEFT"><FONT POINT-SIZE="9">ET &#8722;16 mm/yr (Amazon)</FONT></TD></TR>
+        <TR><TD ALIGN="LEFT"><FONT POINT-SIZE="9">88% intact forest browned</FONT></TD></TR>
+        <TR><TD ALIGN="LEFT"><FONT POINT-SIZE="9">NDVI: t=&#8722;15.4, p&lt;10&#8315;&#8310;</FONT></TD></TR>
+        </TABLE>
+    >, shape=plaintext, fillcolor="white", style=""];
+
+    find2 [label=<
+        <TABLE BORDER="0" CELLBORDER="0" CELLSPACING="1">
+        <TR><TD ALIGN="LEFT"><FONT POINT-SIZE="9">Cloud &#8722;2.3% (Amazon)</FONT></TD></TR>
+        <TR><TD ALIGN="LEFT"><FONT POINT-SIZE="9">&#8722;3.6% at mid-corridor</FONT></TD></TR>
+        <TR><TD ALIGN="LEFT"><FONT POINT-SIZE="9">Trend: &#8722;0.17%/yr, p=0.001</FONT></TD></TR>
+        </TABLE>
+    >, shape=plaintext, fillcolor="white", style=""];
+
+    find3 [label=<
+        <TABLE BORDER="0" CELLBORDER="0" CELLSPACING="1">
+        <TR><TD ALIGN="LEFT"><FONT POINT-SIZE="9">OLR +2.9 W/m&#178; (Amazon)</FONT></TD></TR>
+        <TR><TD ALIGN="LEFT"><FONT POINT-SIZE="9">+4.3 at interior vs +2.7 coast</FONT></TD></TR>
+        <TR><TD ALIGN="LEFT"><FONT POINT-SIZE="9">SON: +24.5 W/m&#178; interior</FONT></TD></TR>
+        </TABLE>
+    >, shape=plaintext, fillcolor="white", style=""];
+
+    find4 [label=<
+        <TABLE BORDER="0" CELLBORDER="0" CELLSPACING="1">
+        <TR><TD ALIGN="LEFT"><FONT POINT-SIZE="9">CRE &#8722;1.5 W/m&#178;</FONT></TD></TR>
+        <TR><TD ALIGN="LEFT"><FONT POINT-SIZE="9">Gradient: &#8722;0.12/yr, p=0.033</FONT></TD></TR>
+        <TR><TD ALIGN="LEFT"><FONT POINT-SIZE="9">WV coast +0.8, interior &#8722;0.4</FONT></TD></TR>
+        </TABLE>
+    >, shape=plaintext, fillcolor="white", style=""];
+
+    find5 [label=<
+        <TABLE BORDER="0" CELLBORDER="0" CELLSPACING="1">
+        <TR><TD ALIGN="LEFT"><FONT POINT-SIZE="9" COLOR="#999999">To be validated with</FONT></TD></TR>
+        <TR><TD ALIGN="LEFT"><FONT POINT-SIZE="9" COLOR="#999999">ERA5 pressure / wind</FONT></TD></TR>
+        </TABLE>
+    >, shape=plaintext, fillcolor="white", style=""];
+
+    find6 [label=<
+        <TABLE BORDER="0" CELLBORDER="0" CELLSPACING="1">
+        <TR><TD ALIGN="LEFT"><FONT POINT-SIZE="9" COLOR="#999999">Sept 2023: OLR dipole</FONT></TD></TR>
+        <TR><TD ALIGN="LEFT"><FONT POINT-SIZE="9" COLOR="#999999">Amazon +12.5, Med &#8722;4.6</FONT></TD></TR>
+        <TR><TD ALIGN="LEFT"><FONT POINT-SIZE="9" COLOR="#999999">Storms Daniel, Boris</FONT></TD></TR>
+        </TABLE>
+    >, shape=plaintext, fillcolor="white", style=""];
+
+    // ===== EDGES: main chain =====
+    step1 -> step2 [label="  &#8595; ET &#8594; &#8595; clouds  ", fontcolor="#444444"];
+    step2 -> step3 [label="  &#8595; clouds &#8594; &#8593; OLR  ", fontcolor="#444444"];
+    step3 -> step4 [label="  &#8593; OLR &#8594; &#8595; condensation  ", fontcolor="#444444"];
+    step4 -> step5 [label="  &#8595; latent heat &#8594; &#8595; pressure  ", fontcolor="#444444"];
+    step5 -> step6 [label="  &#8595; inflow &#8594; diverted moisture  ", fontcolor="#444444"];
+
+    // ===== EDGES: instruments =====
+    step1 -> inst1 [style=dashed, arrowhead=none, color="#aaaaaa"];
+    step2 -> inst2 [style=dashed, arrowhead=none, color="#aaaaaa"];
+    step3 -> inst3 [style=dashed, arrowhead=none, color="#aaaaaa"];
+    step4 -> inst4 [style=dashed, arrowhead=none, color="#aaaaaa"];
+    step5 -> inst5 [style=dashed, arrowhead=none, color="#aaaaaa"];
+    step6 -> inst6 [style=dashed, arrowhead=none, color="#aaaaaa"];
+
+    // ===== EDGES: findings =====
+    inst1 -> find1 [style=dashed, arrowhead=none, color="#cccccc"];
+    inst2 -> find2 [style=dashed, arrowhead=none, color="#cccccc"];
+    inst3 -> find3 [style=dashed, arrowhead=none, color="#cccccc"];
+    inst4 -> find4 [style=dashed, arrowhead=none, color="#cccccc"];
+    inst5 -> find5 [style=dashed, arrowhead=none, color="#cccccc"];
+    inst6 -> find6 [style=dashed, arrowhead=none, color="#cccccc"];
+
+    // ===== FEEDBACK LOOP =====
+    step6 -> step1 [
+        label="  Positive feedback loop  ",
+        color="#e63946", fontcolor="#e63946", penwidth=2,
+        style=bold, constraint=false,
+        headport=w, tailport=w
+    ];
+
+    // ===== RANK ALIGNMENT =====
+    {rank=same; step1; inst1; find1;}
+    {rank=same; step2; inst2; find2;}
+    {rank=same; step3; inst3; find3;}
+    {rank=same; step4; inst4; find4;}
+    {rank=same; step5; inst5; find5;}
+    {rank=same; step6; inst6; find6;}
+
+    // ===== SEPARATOR: completed vs future =====
+    separator [label=<
+        <TABLE BORDER="0" CELLBORDER="0">
+        <TR>
+        <TD><FONT POINT-SIZE="10" COLOR="#2a9d8f"><B>&#9650; Completed in this study</B></FONT></TD>
+        <TD WIDTH="40"></TD>
+        <TD><FONT POINT-SIZE="10" COLOR="#999999"><B>&#9660; Future work (ERA5, HYSPLIT)</B></FONT></TD>
+        </TR>
+        </TABLE>
+    >, shape=plaintext, style=""];
+
+    step4 -> separator [style=invis];
+    separator -> step5 [style=invis];
+
+    // ===== TITLE =====
+    labelloc="t";
+    label=<
+        <TABLE BORDER="0" CELLBORDER="0">
+        <TR><TD><FONT POINT-SIZE="16"><B>Causal Chain: Biotic Pump Breakdown</B></FONT></TD></TR>
+        <TR><TD><FONT POINT-SIZE="11" COLOR="#666666">Observable satellite signatures mapped to diagnostic steps</FONT></TD></TR>
+        </TABLE>
+    >;
+}

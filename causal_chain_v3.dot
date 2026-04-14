@@ -1,0 +1,114 @@
+digraph BiotiPumpBreakdown {
+    // Layout
+    rankdir=TB;
+    bgcolor="white";
+    fontname="Segoe UI, Arial, sans-serif";
+    nodesep=0.6;
+    ranksep=0.7;
+
+    node [fontname="Segoe UI, Arial, sans-serif",
+          shape=box, style="filled,rounded",
+          penwidth=0, margin="0.25,0.12"];
+    edge [fontname="Segoe UI, Arial, sans-serif",
+          fontsize=9, color="#888888", penwidth=1.2];
+
+    // ===== MAIN STEPS =====
+
+    s1 [label="1. Evapotranspiration Drop\nMODIS: ET, NDVI",
+        fillcolor="#1a7a6d", fontcolor="white", fontsize=11, width=3.5];
+
+    s2 [label="2. Cloud Cover Decline\nCERES cloud fraction, MODIS",
+        fillcolor="#3a7ca5", fontcolor="white", fontsize=11, width=3.5];
+
+    s3 [label=<3. OLR Increase (8&#8211;13 &#181;m)<BR/>CERES EBAF-TOA>,
+        fillcolor="#1d3557", fontcolor="white", fontsize=11, width=3.5];
+
+    s4 [label="4. Suppressed Latent Heat Flux\nMODIS, AIRS",
+        fillcolor="#c85a3a", fontcolor="white", fontsize=11, width=3.5];
+
+    s5 [label="5. Pressure Gradient Flattens\nERA5 (future work)",
+        fillcolor="#d0d0d0", fontcolor="#555555", fontsize=11, width=3.5,
+        style="filled,rounded,dashed", penwidth=1.2, color="#aaaaaa"];
+
+    s6 [label="6. Moisture Rerouting\nERA5, HYSPLIT (future work)",
+        fillcolor="#d0d0d0", fontcolor="#555555", fontsize=11, width=3.5,
+        style="filled,rounded,dashed", penwidth=1.2, color="#aaaaaa"];
+
+    // ===== KEY FINDINGS =====
+
+    f1 [label=<ET &#8722;16 mm/yr  |  88% forest browned  |  t=&#8722;15.4, p&lt;10&#8315;&#8310;>,
+        shape=box, fillcolor="#e8f5f0", fontcolor="#1a7a6d", fontsize=9,
+        width=4.5, style="filled,rounded", penwidth=0];
+
+    f2 [label=<Cloud &#8722;2.3%  |  &#8722;3.6% mid-corridor  |  Trend &#8722;0.17%/yr (p=0.001)>,
+        shape=box, fillcolor="#e3eef6", fontcolor="#3a7ca5", fontsize=9,
+        width=4.5, style="filled,rounded", penwidth=0];
+
+    f3 [label=<OLR +2.9 W/m&#178;  |  +4.3 interior vs +2.7 coast  |  SON: +24.5 W/m&#178;>,
+        shape=box, fillcolor="#e0e4ea", fontcolor="#1d3557", fontsize=9,
+        width=4.5, style="filled,rounded", penwidth=0];
+
+    f4 [label=<CRE &#8722;1.5 W/m&#178;  |  Gradient &#8722;0.12/yr (p=0.033)  |  WV gradient &#8722;1.2 kg/m&#178;>,
+        shape=box, fillcolor="#f5e6e0", fontcolor="#c85a3a", fontsize=9,
+        width=4.5, style="filled,rounded", penwidth=0];
+
+    f5 [label="To be validated with ERA5 pressure and wind fields",
+        shape=box, fillcolor="#f0f0f0", fontcolor="#999999", fontsize=9,
+        width=4.5, style="filled,rounded,dashed", penwidth=0.8, color="#cccccc"];
+
+    f6 [label=<Sept 2023 dipole: Amazon +12.5, Mediterranean &#8722;4.6 W/m&#178;  |  Storms Daniel, Boris>,
+        shape=box, fillcolor="#f0f0f0", fontcolor="#999999", fontsize=9,
+        width=4.5, style="filled,rounded,dashed", penwidth=0.8, color="#cccccc"];
+
+    // ===== SEPARATOR =====
+
+    sep [label=<
+        <TABLE BORDER="0" CELLBORDER="0"><TR>
+        <TD><FONT POINT-SIZE="10" COLOR="#1a7a6d"><B>Completed in this study  &#9650;</B></FONT></TD>
+        <TD WIDTH="60"></TD>
+        <TD><FONT POINT-SIZE="10" COLOR="#999999"><B>&#9660;  Future work</B></FONT></TD>
+        </TR></TABLE>>,
+        shape=plaintext, margin="0,0.3"];
+
+    // ===== CHAIN EDGES =====
+    s1 -> s2 [label=<&#8595; ET &#8594; &#8595; clouds>, fontsize=9, fontcolor="#666666"];
+    s2 -> s3 [label=<&#8595; clouds &#8594; &#8593; OLR>, fontsize=9, fontcolor="#666666"];
+    s3 -> s4 [label=<&#8593; OLR &#8594; &#8595; condensation>, fontsize=9, fontcolor="#666666"];
+    s4 -> sep [style=invis];
+    sep -> s5 [style=invis];
+    s4 -> s5 [label=<&#8595; latent heat &#8594; &#8595; pressure>, fontsize=9, fontcolor="#999999", style=dashed];
+    s5 -> s6 [label=<&#8595; inflow &#8594; diverted moisture>, fontsize=9, fontcolor="#999999", style=dashed];
+
+    // ===== FINDING EDGES =====
+    s1 -> f1 [style=dotted, color="#cccccc", arrowhead=none, constraint=false];
+    s2 -> f2 [style=dotted, color="#cccccc", arrowhead=none, constraint=false];
+    s3 -> f3 [style=dotted, color="#cccccc", arrowhead=none, constraint=false];
+    s4 -> f4 [style=dotted, color="#cccccc", arrowhead=none, constraint=false];
+    s5 -> f5 [style=dotted, color="#cccccc", arrowhead=none, constraint=false];
+    s6 -> f6 [style=dotted, color="#cccccc", arrowhead=none, constraint=false];
+
+    // ===== FEEDBACK =====
+    s6 -> s1 [
+        label=<  <FONT POINT-SIZE="10" COLOR="#d63031"><B>Positive feedback</B></FONT>  >,
+        color="#d63031", penwidth=2.5, style=bold,
+        constraint=false, headport=w, tailport=w
+    ];
+
+    // ===== ALIGNMENT =====
+    {rank=same; s1; f1;}
+    {rank=same; s2; f2;}
+    {rank=same; s3; f3;}
+    {rank=same; s4; f4;}
+    {rank=same; s5; f5;}
+    {rank=same; s6; f6;}
+
+    // ===== TITLE =====
+    labelloc="t";
+    labeljust="c";
+    label=<
+        <TABLE BORDER="0" CELLBORDER="0" CELLSPACING="4">
+        <TR><TD><FONT FACE="Segoe UI" POINT-SIZE="18"><B>Biotic Pump Breakdown: Diagnostic Chain</B></FONT></TD></TR>
+        <TR><TD><FONT FACE="Segoe UI" POINT-SIZE="11" COLOR="#777777">Satellite instruments and key findings mapped to each mechanistic step</FONT></TD></TR>
+        </TABLE>
+    >;
+}
