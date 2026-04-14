@@ -2,7 +2,7 @@
 
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.19567270.svg)](https://doi.org/10.5281/zenodo.19567270)
 
-Analysis pipeline for **"Satellite evidence for progressive weakening of condensation-driven moisture transport along tropical forest corridors"** (Shahid, 2026).
+Analysis pipeline for **"Collapse of the moisture corridors that sustain inland rainfall in the Amazon and Congo"** (Shahid, 2026).
 
 ## Summary
 
@@ -222,8 +222,8 @@ The manuscript and supplementary materials are available as release assets:
 ```bibtex
 @article{shahid2026biotic,
   author  = {Shahid, Ali Bin},
-  title   = {Satellite evidence for progressive weakening of condensation-driven
-             moisture transport along tropical forest corridors},
+  title   = {Collapse of the moisture corridors that sustain inland rainfall
+             in the {A}mazon and {C}ongo},
   year    = {2026},
   doi     = {10.5281/zenodo.19567270},
   note    = {Preprint}
