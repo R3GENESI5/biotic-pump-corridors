@@ -1,5 +1,7 @@
 # Biotic Pump Corridor Analysis
 
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.19567270.svg)](https://doi.org/10.5281/zenodo.19567270)
+
 Analysis pipeline for **"Satellite evidence for progressive weakening of condensation-driven moisture transport along tropical forest corridors"** (Shahid, 2026).
 
 ## Summary
@@ -223,6 +225,7 @@ The manuscript and supplementary materials are available as release assets:
   title   = {Satellite evidence for progressive weakening of condensation-driven
              moisture transport along tropical forest corridors},
   year    = {2026},
+  doi     = {10.5281/zenodo.19567270},
   note    = {Preprint}
 }
 ```
