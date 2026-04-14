@@ -189,14 +189,14 @@ biotic-pump-corridors/
 ├── causal_chain.mmd           <- Mermaid diagnostic chain diagram
 ├── notebooks/
 │   └── 01_et_olr_exploration.py   <- Exploratory notebook
-├── paper/
-│   ├── Shahid_2026_Biotic_Pump.docx              <- Main manuscript (12 figures)
-│   ├── Shahid_2025_Supplementary_Materials.docx   <- Supplementary (40 figures)
-│   ├── complete_manuscript.md                     <- Full text in markdown
-│   └── paper_outline.md                           <- Paper structure plan
 ├── outputs/                   <- All generated figures (59 PNGs)
 └── data/                      <- Downloaded satellite data (not tracked)
 ```
+
+## Manuscript
+
+The manuscript and supplementary materials are available as release assets:
+[v1.0.0 Release](https://github.com/R3GENESI5/biotic-pump-corridors/releases/tag/v1.0.0)
 
 ## Supplementary Materials
 

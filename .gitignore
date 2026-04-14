@@ -26,5 +26,8 @@ Thumbs.db
 # Temp
 *.tmp
 
+# Paper (kept locally, not in repo)
+paper/
+
 # Word temp files
 ~$*
